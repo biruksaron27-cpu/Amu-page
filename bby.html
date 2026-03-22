@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Amuwani</title>
+
+<style>
+
+body{
+margin:0;
+font-family: "Segoe UI", sans-serif;
+background: linear-gradient(135deg,#7a0000,#b30000,#ff1a1a);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+padding:20px;
+}
+
+h1{
+	color:mintcream;
+}
+h2{
+	color:mintcream;
+}
+p{
+	color:mintcream;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff1f4b;
+}
+
+#reasonsContainer{
+display:none;
+margin-top:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+font-size:15px;
+text-align:left;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.number{
+font-weight:bold;
+color:#ff4d6d;
+margin-bottom:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="home">
+
+<h1>Heyyyy Babyyyy❤</h1>
+
+<p style="margin-top:15px; font-size:17px;">
+I just want you to know how happy I am to have you in my life😘😘  
+</p>
+<p>
+Every day with you is a gift, and I’m so grateful for all the little moments we share together Amanye❤️❤️
+</p>
+
+
+<button onclick="openLetter()">TOUCH MEEE💌</button>
+
+</div>
+
+
+<div id="reasonsContainer">
+
+<h2>Things I Loveeeee About Youuuuu</h2>
+
+<div class="grid" id="grid"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const reasons = [
+
+"You make me feel safe🛡️💖",
+"Your laugh always brightens my day😂✨",
+"You really listen to me not just hear me👂💌",
+"You support me in everything I do💪❤️",
+"You give the best hugs🤗💞",
+"Your smile makes my heart melt😍🌸",
+"You make me feel like the most important person💖🌟",
+"You’re so patient with me🕊️💛",
+"You have the best sense of humor 😆🎉",
+"You’re always there when I need you😊🥰",
+"Your eyes captivate me 👀💫",
+"You’re the most reliable person I know 🤝💛",
+"You encourage me to chase my dreams ✨🚀",
+"You love trying new things with me 🌈",
+"You’re an amazing cook (If uk what I mean)😋🍳",
+"You make me feel beautiful 🌸💖",
+"You accept me just as I am 💕🫂",
+"You love me for who I truly am ❤️💞",
+"You remember all the little details about me 📝💌",
+"You make me feel understood 💛🤍",
+"You’re such a babbbyy 🥰🐣",
+"You know how to make me feel better after a bad day 🌈☀️",
+"You’re strong in every way 💪💖",
+"You make me laugh until my stomach hurts 😂💛",
+"You always treat me with respect 🫂💖",
+"You look out for my best interests 👀💛",
+"You are just amazing 🌟💞",
+"You value quality time with me ⏳❤️",
+"You’re great with kids 🧸💛",
+"You listen when I need to vent 👂💌",
+"You make even weird moments feel special 🌸✨",
+"You’re open-minded and willing to learn 🧠💖",
+"You’re passionate about the things you love 🔥💛",
+"You’re always willing to help others 🤝💞",
+"You’re a great partner 🫂❤️",
+"You’re spontaneous and make life exciting 🎉✨",
+"You share your thoughts and feelings with me openly 💌💛",
+"You make me feel like I can be myself without fear 💖🕊️",
+"You love me even on my bad days ❤️🌈",
+"You don’t try to change me 💛🤍",
+"You have the most caring heart 💖💞",
+"You encourage me to be a better version of myself 🌸✨",
+"You’re selfless and put others first 🤝❤️",
+"You’re willing to apologize when you’re wrong 💌💛",
+"You’re thoughtful with gifts 🎁💖",
+"You believe in me 🌟💞",
+"You’re so fun to be around 😆✨",
+"You’re curious about the world and love learning 🌍💛",
+"You like challenges 💪🔥",
+"You have so much confidence 💎💖",
+"You make me feel cherished 💖🫶",
+"You’re dedicated to our relationship ❤️🌸",
+"You help me grow as a person 🌱💛",
+"You take care of your health 🏃‍♂️💖",
+"You’re proud of my accomplishments 🌟💌",
+"You make even mundane tasks fun when we do them together 🎉💛",
+"You always surprise me with new things to love about you ✨💖",
+"You inspire me to be more positive 🌸☀️",
+"You’re always honest even when the truth is hard 💌💛",
+"You make me feel like we’re a team 💕🤝",
+"You value my opinions 💛📝",
+"You’re protective in the sweetest way 🛡️💖",
+"You always know how to make me feel better when I’m down 🌈💌",
+"You love making future plans with me ✨💛",
+"You make me feel at peace 🌸🕊️",
+"You respect my space and need for alone time 🏡💖",
+"You know how to make me pissed af 😆🔥",
+"You share your dreams with me 🌙💛",
+"You’re loyal ❤️💌",
+"You respect my boundaries 🫂💖",
+"You make me feel appreciated every day 💛💞",
+"You can make me smile even when I’m upset 😄💖",
+"You’re an amazing communicator 🗣️💛",
+"You calm me down when I’m stressed 🌊💌",
+"You want me to step out of my comfort zone 🌟🫶",
+"You value the little things in life 🌸💛",
+"You never give up on me 💖🔥",
+"You make me feel proud to be by your side 🌟💛",
+"You’re genuinely interested in my life and experiences 🫂💌",
+"You don’t judge me when I make mistakes 💛❤️",
+"You value our relationship above all else 💖🫶",
+"You’re incredibly patient with my quirks 🕊️💛",
+"You make me feel like I belong with you 🌸💞",
+"You’re great at balancing me and your life 🏃‍♂️💌",
+"You always make sure I know how much I mean to you ❤️💛",
+"You love exploring new places and sharing adventures with me 🌍✨",
+"You’re so easy to talk to no matter the topic 🫂💖",
+"You’re the best partner for compromise 🤝💛",
+"You see the best in people 🌟💞",
+"You have the ability to find beauty in everything 🌸✨",
+"You’re not afraid to show vulnerability 💌💛",
+"You’re a great problem-solver 🧠💖",
+"You challenge me to think differently 🌟💛",
+"You make me feel special 💖🫶",
+"You appreciate the small moments we share 🌸💌",
+"You have a beautiful soul 💛✨",
+"You make every day better just by being in it 🌞💖",
+"You help me see the world in a more positive light 🌍💛",
+"You’re my biggest cheerleader 📣💞",
+"You love me like no one ever has and I love you endlessly ❤️💖"
+
+];
+
+
+function openLetter(){
+
+document.getElementById("home").style.display="none";
+document.getElementById("reasonsContainer").style.display="block";
+
+const grid=document.getElementById("grid");
+
+reasons.forEach((reason,index)=>{
+
+let card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<div class="number">${index+1}.</div>
+<div>${reason}</div>
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
